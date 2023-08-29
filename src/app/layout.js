@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
     <html>
       <body>
         <h1><Link href="/">WEB</Link></h1>
+        <img src="/vercel.svg" alt="Vercel Logo" className="logo" style={{width:"100px", height:"100px"}}/>
         <ol>
           <li><Link href="/read/1">html</Link></li>
           <li><Link href="/read/2">css</Link></li>
