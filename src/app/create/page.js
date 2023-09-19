@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function Create () {
   const router = useRouter();
+
   return (
     <form onSubmit={(e)=>{
       e.preventDefault();
@@ -16,23 +17,21 @@ export default function Create () {
         },
         body: JSON.stringify({title, body})
       }
-
       fetch('http://localhost:9900/topics', option).then(res => res.json()).then(data => {
         console.log(data)
         const lastId = data.id;
-        router.push(`/read/${lastId}`);
-    }>
-      <div>
-        <p>
-          <input type="text" name="title" placeholder="title" />
-        </p>
-        <p>
-          <textarea name="body" placeholder="body"></textarea>
-        </p>
-        <p>
-          <input type="submit" value="create" />
-        </p>
-      </div>
-    </form>
+        router.push(`/read/${lastId}`)
+      });
+    }}>
+    <p>
+      <input type="text" name="title" placeholder="title" />
+    </p>
+    <p>
+      <textarea name="body" placeholder="body"></textarea>
+    </p>
+    <p>
+      <input type="submit" value="create" />
+    </p>
+  </form>
   )
 }
