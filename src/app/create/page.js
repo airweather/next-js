@@ -17,11 +17,14 @@ export default function Create () {
         },
         body: JSON.stringify({title, body})
       }
-      fetch('http://localhost:9900/topics', option).then(res => res.json()).then(data => {
-        console.log(data)
-        const lastId = data.id;
-        router.push(`/read/${lastId}`)
-      });
+      fetch('http://localhost:9900/topics', option)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          const lastId = data.id;
+          router.refresh()
+          router.push(`/read/${lastId}`)
+        });
     }}>
     <p>
       <input type="text" name="title" placeholder="title" />
