@@ -11,8 +11,10 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   
   // revalidate
+  // const resp = await fetch('http://localhost:9900/topics', { next: { revalidate: 0 } });
   
-  const resp = await fetch('http://localhost:9900/topics', { next: { revalidate: 0 } });
+  // no-cache
+  const resp = await fetch('http://localhost:9900/topics', { cache: 'no-cache' });
   const topics = await resp.json();
 
   return (
