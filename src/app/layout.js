@@ -1,5 +1,6 @@
 // "use client"
 // react hooks는 client component 에서만 사용 가능
+import { Control } from './Control'
 import './globals.css'
 import Link from 'next/link'
 
@@ -28,11 +29,7 @@ export default async function RootLayout({ children }) {
           ))}
         </ol>
           {children}
-          <ul>
-            <li><Link href="/create">create</Link></li>
-            <li><Link href="/update">update</Link></li>
-            <li><input type="button" value="delete"/></li>
-          </ul>
+          <Control/>
       </body>
     </html>
   )
